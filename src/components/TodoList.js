@@ -28,7 +28,7 @@ const TodoList = ({ todoItems, setTodoItems, editTask, setEditTask }) => {
         <div className="todo-list">
         {todoItems.map((task) => (
             <li className="task-item" key={task.id}>
-                <p>{task.title} id:{task.id}</p>
+                <p>{task.title}</p>
                 <div className="item-buttons">
                     <button
                         className="task-complete" 

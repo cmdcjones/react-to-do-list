@@ -5,12 +5,13 @@
 
 body {
     background-color: #03012C;
-    color: rgba(255, 255, 255, .96);
+    color: white;
     letter-spacing: 1.5px;
 }
 
 h1 {
     margin: 0;
+    filter: brightness(.999);
 }
 
 form {
@@ -23,12 +24,18 @@ li {
 
 p {
     display: inline-block;
+    width: 55%;
     min-width: 30%;
+}
+
+button {
+    border: none;
+    border-radius: 4px;
 }
 
 .item-buttons {
     display: inline-block;
-    width: 50%;
+    width: 180px;
     margin-left: 15px;
 }
 
@@ -48,8 +55,8 @@ p {
     position: relative;
     top: 180px;
     margin: auto;
-    max-width: 500px;
-    min-width: 350px;
+    max-width: 600px;
+    min-width: 450px;
     min-height: 250px;
     border-radius: 10px;
     box-shadow: 0 0 15px 4px rgba(0, 0, 0, .3);
@@ -73,14 +80,37 @@ p {
 
 .button-submit {
     height: 42px;
-    background-color: #006422;
+    background-color: #009622;
     color: rgba(255, 255, 255, .96);
     border: none;
     border-radius: 4px;
     padding: 8px;
 }
 
-.button-submit[text="Save edit!"] {
+.task-complete {
+    background-color: #009622;
+    color: white;
+}
+
+.task-edit {
+    background-color: #FFBE0A;
+    color: white;
+}
+
+.task-delete {
+    background-color: #C80000;
+    color: white;
+}
+
+.button-submit:hover {
+    background-color: #006618;
+}
+
+.button-edit {
+    background-color: #FFBE0A;
+}
+
+.button-edit:hover {
     background-color: #E0A300;
 }
 
