@@ -27,6 +27,8 @@ const Form = ({ input, setInput, todoItems, setTodoItems, editTask, setEditTask 
         )
         setTodoItems(updatedTask);
         setEditTask('');
+        const button = document.getElementById('button-submit');
+        button.className = "button-submit";
     };
 
     const generateId = () => {
@@ -54,7 +56,7 @@ const Form = ({ input, setInput, todoItems, setTodoItems, editTask, setEditTask 
                     value={input}
                     onChange={handleInputChange}
                 />
-                <button className="button-submit" type="submit">
+                <button id="button-submit" className="button-submit" type="submit">
                 {editTask ? "Save edit!" : "Add task!"}
                 </button>
             </form>

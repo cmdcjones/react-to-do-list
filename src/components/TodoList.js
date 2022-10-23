@@ -19,6 +19,8 @@ const TodoList = ({ todoItems, setTodoItems, editTask, setEditTask }) => {
 
     const handleEdit = ({ id }) => {
         const selectedTask = todoItems.find((task) => task.id === id);
+        const button = document.getElementById('button-submit');
+        button.className += " button-edit";
         setEditTask(selectedTask);
     };
 
@@ -27,7 +29,7 @@ const TodoList = ({ todoItems, setTodoItems, editTask, setEditTask }) => {
         {todoItems.map((task) => (
             <li className="task-item" key={task.id}>
                 <p>{task.title} id:{task.id}</p>
-                <div>
+                <div className="item-buttons">
                     <button
                         className="task-complete" 
                         onClick={() => handleComplete(task)}
