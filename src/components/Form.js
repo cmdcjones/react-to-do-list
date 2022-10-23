@@ -1,12 +1,23 @@
 import React from 'react'
 
-const Form = ({ input, setInput }) => {
+const Form = ({ input, setInput, todoItems, setTodoItems }) => {
     const handleInputChange = (event) => {
         setInput(event.target.value);
     };
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
+        setTodoItems([...todoItems, 
+                        {id: generateId(),
+                        title: input, 
+                        completed: false,
+                        }]);
+        setInput('');
+    };
+
+    const generateId = () => {
+        let newId = Math.floor(Math.random() * 10000);
+        return newId;
     };
 
     return (
