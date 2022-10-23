@@ -16,7 +16,10 @@ const App = () => {
                 todoItems={todoItems}
                 setTodoItems={setTodoItems}
             />
-            <TodoList />
+            <TodoList 
+                todoItems={todoItems}
+                setTodoItems={setTodoItems}
+            />
         </div>
     );
 };
