@@ -13,11 +13,15 @@ const TodoList = ({ todoItems, setTodoItems }) => {
         );
     }
 
+    const handleDelete = ({ id }) => {
+        setTodoItems(todoItems.filter((task) => task.id !== id));
+    }
+
     return (
         <div className="todo-list">
         {todoItems.map((task) => (
             <li className="task-item" key={task.id}>
-                <p>{task.title}</p>
+                <p>{task.title} id:{task.id}</p>
                 <div>
                     <button
                         className="task-complete" 
@@ -32,6 +36,7 @@ const TodoList = ({ todoItems, setTodoItems }) => {
                     </button>
                     <button
                         className="task-delete"
+                        onClick={() => handleDelete(task)}
                     >
                         delete
                     </button>
