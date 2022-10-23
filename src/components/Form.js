@@ -1,24 +1,46 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 
-const Form = ({ input, setInput, todoItems, setTodoItems }) => {
+const Form = ({ input, setInput, todoItems, setTodoItems, editTask, setEditTask }) => {
+
     const handleInputChange = (event) => {
         setInput(event.target.value);
     };
 
     const handleFormSubmit = (event) => {
         event.preventDefault();
-        setTodoItems([...todoItems, 
+        if (!editTask) {
+            setTodoItems([...todoItems, 
                         {id: generateId(),
                         title: input, 
                         completed: false,
                         }]);
-        setInput('');
+            setInput('');
+        } else {
+            updateTask(input, editTask.id, editTask.completed);
+        }
+
+    };
+
+    const updateTask = (title, id, completed) => {
+        const updatedTask = todoItems.map((task) => 
+            task.id === id ? {title, id, completed} : task
+        )
+        setTodoItems(updatedTask);
+        setEditTask('');
     };
 
     const generateId = () => {
         let newId = Math.floor(Math.random() * 10000);
         return newId;
     };
+
+    useEffect(() => {
+        if (editTask) {
+            setInput(editTask.title);
+        } else {
+            setInput("");
+        }
+    }, [setInput, editTask]);
 
     return (
         <div className="form-container">
@@ -33,7 +55,7 @@ const Form = ({ input, setInput, todoItems, setTodoItems }) => {
                     onChange={handleInputChange}
                 />
                 <button className="button-submit" type="submit">
-                Add task!
+                {editTask ? "Save edit!" : "Add task!"}
                 </button>
             </form>
         </div>
