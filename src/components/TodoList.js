@@ -11,6 +11,12 @@ const TodoList = ({ todoItems, setTodoItems, editTask, setEditTask }) => {
                 return taskItem;
             })
         );
+        const button = document.getElementById('task-complete');
+        if (task.completed) {
+            button.className += " task-completed";
+        } else {
+            button.className = "task-complete";
+        }
     };
 
     const handleDelete = ({ id }) => {
@@ -31,6 +37,7 @@ const TodoList = ({ todoItems, setTodoItems, editTask, setEditTask }) => {
                 <p>{task.title}</p>
                 <div className="item-buttons">
                     <button
+                        id="task-complete"
                         className="task-complete" 
                         onClick={() => handleComplete(task)}
                     >

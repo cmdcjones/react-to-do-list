@@ -50,11 +50,12 @@ const Form = ({ input, setInput, todoItems, setTodoItems, editTask, setEditTask 
                 <input
                     className="input-form"
                     type="text"
-                    min="3"
-                    max="60"
+                    minlength="3"
+                    maxlength="30"
                     placeholder="Enter a task..."
                     value={input}
                     onChange={handleInputChange}
+                    required
                 />
                 <button id="button-submit" className="button-submit" type="submit">
                 {editTask ? "Save edit!" : "Add task!"}
