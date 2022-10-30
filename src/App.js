@@ -20,6 +20,7 @@ const App = () => {
                 setEditTask={setEditTask}
             />
             <TodoList 
+                setInput={setInput}
                 todoItems={todoItems}
                 setTodoItems={setTodoItems}
                 editTask={editTask}

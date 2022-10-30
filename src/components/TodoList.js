@@ -1,6 +1,6 @@
 import React from 'react'
 
-const TodoList = ({ todoItems, setTodoItems, editTask, setEditTask }) => {
+const TodoList = ({ setInput, todoItems, setTodoItems, editTask, setEditTask }) => {
 
     const handleComplete = (task) => {
         setTodoItems(
@@ -11,22 +11,32 @@ const TodoList = ({ todoItems, setTodoItems, editTask, setEditTask }) => {
                 return taskItem;
             })
         );
-        const selected_task = document.getElementById(task.id);
-        if (selected_task.className === "task-item") {
-            selected_task.className += " completed";
+        const selectedTask = document.getElementById(task.id);
+        if (selectedTask.className === "task-item") {
+            selectedTask.className = "task-item completed";
         } else {
-            selected_task.className = "task-item";
+            selectedTask.className = "task-item";
         }
     };
 
     const handleDelete = ({ id }) => {
         setTodoItems(todoItems.filter((task) => task.id !== id));
+        if (editTask.id === id) {
+            setEditTask('');
+            setInput('');
+            const button = document.getElementById('button-submit');
+            button.className = "button-submit";
+        }
     };
 
     const handleEdit = ({ id }) => {
         const selectedTask = todoItems.find((task) => task.id === id);
         const button = document.getElementById('button-submit');
-        button.className += " button-edit";
+        button.className = "button-submit button-edit";
+        const selectedTaskComplete = document.getElementById(selectedTask.id);
+        if (selectedTaskComplete.className === "task-item completed") {
+            selectedTaskComplete.className = "task-item";
+        }
         setEditTask(selectedTask);
     };
 

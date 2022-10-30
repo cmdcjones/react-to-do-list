@@ -17,6 +17,7 @@ const Form = ({ input, setInput, todoItems, setTodoItems, editTask, setEditTask 
             setInput('');
         } else {
             updateTask(input, editTask.id, editTask.completed);
+            console.log(event);
         }
 
     };
