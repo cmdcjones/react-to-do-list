@@ -22,6 +22,10 @@ li {
     list-style: none;
 }
 
+li.completed p {
+    text-decoration: line-through;
+}
+
 p {
     display: inline-block;
     width: 55%;
