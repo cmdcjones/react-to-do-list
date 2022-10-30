@@ -11,11 +11,11 @@ const TodoList = ({ todoItems, setTodoItems, editTask, setEditTask }) => {
                 return taskItem;
             })
         );
-        const button = document.getElementById('task-complete');
-        if (task.completed) {
-            button.className += " task-completed";
+        const selected_task = document.getElementById(task.id);
+        if (selected_task.className === "task-item") {
+            selected_task.className += " completed";
         } else {
-            button.className = "task-complete";
+            selected_task.className = "task-item";
         }
     };
 
@@ -33,11 +33,10 @@ const TodoList = ({ todoItems, setTodoItems, editTask, setEditTask }) => {
     return (
         <div className="todo-list">
         {todoItems.map((task) => (
-            <li className="task-item" key={task.id}>
+            <li className="task-item" key={task.id} id={task.id}>
                 <p>{task.title}</p>
                 <div className="item-buttons">
                     <button
-                        id="task-complete"
                         className="task-complete" 
                         onClick={() => handleComplete(task)}
                     >

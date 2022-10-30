@@ -50,8 +50,8 @@ const Form = ({ input, setInput, todoItems, setTodoItems, editTask, setEditTask 
                 <input
                     className="input-form"
                     type="text"
-                    minlength="3"
-                    maxlength="30"
+                    minLength="3"
+                    maxLength="30"
                     placeholder="Enter a task..."
                     value={input}
                     onChange={handleInputChange}
